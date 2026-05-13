@@ -272,6 +272,7 @@ private struct OBStoragePage: View {
         case .local:    return Color(red: 0.3, green: 0.85, blue: 0.45)
         case .icloud:   return Color(red: 0.2, green: 0.6,  blue: 1.0)
         case .firebase: return Color(red: 1.0, green: 0.4,  blue: 0.2)
+        case .wyze:     return Color(red: 0.1, green: 0.7,  blue: 0.9)
         }
     }
 }

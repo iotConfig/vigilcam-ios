@@ -30,6 +30,32 @@ struct SettingsView: View {
                     Text(settings.storageBackend.description)
                 }
 
+                // MARK: - Wyze Bridge (shown only when Wyze backend is selected)
+                if settings.storageBackend == .wyze {
+                    Section {
+                        LabeledRow(label: "Recordings URL") {
+                            TextField("http://192.168.1.100:8088",
+                                      text: $settings.wyzeRecordingsURL)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                                .keyboardType(.URL)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        LabeledRow(label: "Bridge API URL") {
+                            TextField("http://192.168.1.100:5000",
+                                      text: $settings.wyzeBridgeURL)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                                .keyboardType(.URL)
+                                .multilineTextAlignment(.trailing)
+                        }
+                    } header: {
+                        Text("Wyze Bridge")
+                    } footer: {
+                        Text(wyzeBridgeFooter)
+                    }
+                }
+
                 // MARK: - This Device
                 Section {
                     LabeledRow(label: "Device Name") {
@@ -162,6 +188,14 @@ struct SettingsView: View {
 
     // MARK: - Helpers
 
+    private var wyzeBridgeFooter: String {
+        let hasRecordings = !settings.wyzeRecordingsURL.isEmpty
+        if !hasRecordings {
+            return "⚠️ Recordings URL required. Run docker-wyze-bridge with RECORD_ALL=true, then serve its recording directory with nginx (autoindex on; autoindex_format json). Enter that server's URL above."
+        }
+        return "Recordings URL: nginx file server pointing at the bridge's RECORD_PATH. Bridge API URL: optional, used for camera discovery and future live-stream support."
+    }
+
     private var smtpFooter: String {
         if settings.smtpPassword.isEmpty {
             return "⚠️ Password required. Works with any SMTP provider — Gmail, Outlook, Yahoo, iCloud Mail, or your own server. For Gmail, create an App Password at myaccount.google.com → Security → App Passwords."
@@ -177,6 +211,8 @@ struct SettingsView: View {
             return "This name identifies your recordings in the video browser on other devices. Recordings are stored in iCloud Drive under VigilCam/\(settings.deviceName)/."
         case .firebase:
             return "This name identifies your recordings in the video browser on other devices. Recordings are uploaded to Firebase under VigilCam/\(settings.deviceName)/."
+        case .wyze:
+            return "Device name is not used when browsing Wyze recordings."
         }
     }
 

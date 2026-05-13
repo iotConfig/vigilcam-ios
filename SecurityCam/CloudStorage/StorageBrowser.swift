@@ -76,6 +76,8 @@ final class StorageBrowser: ObservableObject {
             return "**\(backendName)** — syncs to all devices on the same Apple ID."
         case .firebase:
             return "**\(backendName)** — syncs to all devices via Firebase."
+        case .wyze:
+            return "**\(backendName)** — recordings streamed from your Wyze Bridge server."
         }
     }
 

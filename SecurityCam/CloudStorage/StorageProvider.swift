@@ -36,6 +36,7 @@ enum StorageBackend: String, CaseIterable, Identifiable {
     case local    = "On-Device"
     case icloud   = "iCloud Drive"
     case firebase = "Firebase (Google Cloud)"
+    case wyze     = "Wyze Cameras"
 
     var id: String { rawValue }
 
@@ -44,6 +45,7 @@ enum StorageBackend: String, CaseIterable, Identifiable {
         case .local:    return "internaldrive.fill"
         case .icloud:   return "icloud.fill"
         case .firebase: return "flame.fill"
+        case .wyze:     return "camera.on.rectangle.fill"
         }
     }
 
@@ -55,6 +57,8 @@ enum StorageBackend: String, CaseIterable, Identifiable {
             return "Stored in your iCloud Drive. Syncs automatically to all devices on the same Apple ID. Requires a paid Apple Developer account."
         case .firebase:
             return "Uploaded to Firebase Storage (Google Cloud). Each installation needs its own Firebase project. See setup instructions."
+        case .wyze:
+            return "Browse recordings saved by docker-wyze-bridge on your local network. Requires a bridge server with nginx file-serving enabled."
         }
     }
 }
@@ -141,6 +145,9 @@ enum StorageProviderFactory {
         case .local:    return LocalStorageProvider()
         case .icloud:   return iCloudStorageProvider()
         case .firebase: return FirebaseStorageProvider()
+        case .wyze:
+            let url = UserDefaults.standard.string(forKey: "wyzeRecordingsURL") ?? ""
+            return WyzeBridgeProvider(recordingsURL: url)
         }
     }
 }

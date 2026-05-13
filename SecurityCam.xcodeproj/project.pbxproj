@@ -32,6 +32,7 @@
 		AA0001000000000000000023 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000026 /* PrivacyInfo.xcprivacy */; };
 		AA0001000000000000000024 /* LocalStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000027 /* LocalStorageProvider.swift */; };
 		AA0001000000000000000025 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000028 /* OnboardingView.swift */; };
+		AA0001000000000000000026 /* WyzeBridgeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000029 /* WyzeBridgeProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		AA0002000000000000000026 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA0002000000000000000027 /* LocalStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProvider.swift; sourceTree = "<group>"; };
 		AA0002000000000000000028 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AA0002000000000000000029 /* WyzeBridgeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WyzeBridgeProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				AA0002000000000000000019 /* iCloudStorageProvider.swift */,
 				AA0002000000000000000020 /* FirebaseStorageProvider.swift */,
 				AA0002000000000000000027 /* LocalStorageProvider.swift */,
+				AA0002000000000000000029 /* WyzeBridgeProvider.swift */,
 			);
 			path = CloudStorage;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				AA0001000000000000000022 /* DebugLog.swift in Sources */,
 				AA0001000000000000000024 /* LocalStorageProvider.swift in Sources */,
 				AA0001000000000000000025 /* OnboardingView.swift in Sources */,
+				AA0001000000000000000026 /* WyzeBridgeProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

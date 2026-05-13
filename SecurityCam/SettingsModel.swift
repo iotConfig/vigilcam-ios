@@ -5,18 +5,21 @@ import UIKit
 final class SettingsModel: ObservableObject {
 
     private enum Key {
-        static let chunkMinutes   = "chunkDurationMinutes"
-        static let emailEnabled   = "emailEnabled"
-        static let recipient      = "recipientEmail"
-        static let emailCooldown  = "emailCooldownMinutes"
-        static let deviceName     = "deviceName"
-        static let storageBackend = "storageBackend"
-        static let maxStorageGB   = "maxStorageGB"
+        static let chunkMinutes      = "chunkDurationMinutes"
+        static let emailEnabled      = "emailEnabled"
+        static let recipient         = "recipientEmail"
+        static let emailCooldown     = "emailCooldownMinutes"
+        static let deviceName        = "deviceName"
+        static let storageBackend    = "storageBackend"
+        static let maxStorageGB      = "maxStorageGB"
         // SMTP — stored in UserDefaults, never hardcoded.
-        static let smtpHost       = "smtpHost"
-        static let smtpPort       = "smtpPort"
-        static let smtpUsername   = "smtpUsername"
-        static let smtpPassword   = "smtpPassword"
+        static let smtpHost          = "smtpHost"
+        static let smtpPort          = "smtpPort"
+        static let smtpUsername      = "smtpUsername"
+        static let smtpPassword      = "smtpPassword"
+        // Wyze Bridge
+        static let wyzeRecordingsURL = "wyzeRecordingsURL"
+        static let wyzeBridgeURL     = "wyzeBridgeURL"
     }
 
     private let ud = UserDefaults.standard
@@ -41,6 +44,17 @@ final class SettingsModel: ObservableObject {
     @Published var smtpPort:     Int    { didSet { ud.set(smtpPort,     forKey: Key.smtpPort)     } }
     @Published var smtpUsername: String { didSet { ud.set(smtpUsername, forKey: Key.smtpUsername) } }
     @Published var smtpPassword: String { didSet { ud.set(smtpPassword, forKey: Key.smtpPassword) } }
+    // Wyze Bridge
+    /// URL of the nginx file server that exposes the bridge's recording directory.
+    /// e.g. "http://192.168.1.100:8088"
+    @Published var wyzeRecordingsURL: String {
+        didSet { ud.set(wyzeRecordingsURL, forKey: Key.wyzeRecordingsURL) }
+    }
+    /// URL of the docker-wyze-bridge REST API. e.g. "http://192.168.1.100:5000"
+    /// Used for camera discovery and (future) live streaming.
+    @Published var wyzeBridgeURL: String {
+        didSet { ud.set(wyzeBridgeURL, forKey: Key.wyzeBridgeURL) }
+    }
 
     init() {
         chunkDurationMinutes = ud.object(forKey: Key.chunkMinutes)  as? Int ?? 5
@@ -55,6 +69,8 @@ final class SettingsModel: ObservableObject {
         smtpPort             = ud.object(forKey: Key.smtpPort)    as? Int    ?? 465
         smtpUsername         = ud.string(forKey: Key.smtpUsername)           ?? ""
         smtpPassword         = ud.string(forKey: Key.smtpPassword)           ?? ""
+        wyzeRecordingsURL    = ud.string(forKey: Key.wyzeRecordingsURL)      ?? ""
+        wyzeBridgeURL        = ud.string(forKey: Key.wyzeBridgeURL)          ?? ""
     }
 
     /// Chunk duration as a `TimeInterval` for use in timers.
