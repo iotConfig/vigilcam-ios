@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Required bundle keys -->
+    <key>CFBundleDisplayName</key>
+    <string>VigilCam</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+
+    <!-- Camera -->
+    <key>NSCameraUsageDescription</key>
+    <string>Used to record continuous security footage from your iPhone camera.</string>
+
+    <!-- Microphone -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Used to record audio alongside security video clips.</string>
+
+    <!-- Photos (saving clips + browsing the VigilCam album) -->
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>VigilCam clips are saved to your photo library for easy review.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>VigilCam reads your photo library to display and play recordings saved to the VigilCam album.</string>
+
+    <!-- Local network (P2P live stream — camera connects to viewer's TCP socket) -->
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>VigilCam uses your local Wi-Fi network to stream live video from the recording device to this device.</string>
+
+    <!-- Background modes:
+         "audio" keeps the capture session alive when the app is backgrounded. -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+    </array>
+
+    <!-- Supported orientations -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- Expose the app's Documents folder in the Files app -->
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+
+    <!-- Launch screen — app icon centred on the same black background as the app. -->
+    <key>UILaunchScreen</key>
+    <dict>
+        <key>UIColorName</key>
+        <string>LaunchBackground</string>
+        <key>UIImageName</key>
+        <string>LaunchLogo</string>
+        <key>UIImageRespectsSafeAreaInsets</key>
+        <false/>
+    </dict>
+</dict>
+</plist>

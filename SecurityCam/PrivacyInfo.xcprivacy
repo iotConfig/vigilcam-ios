@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- ───────────────────────────────────────────────────
+         Required-reason APIs used by VigilCam
+         https://developer.apple.com/documentation/bundleresources/
+                 privacy_manifest_files/describing_use_of_required_reason_api
+    ─────────────────────────────────────────────────────── -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+
+        <!-- UserDefaults — stores SMTP credentials, device name, storage quota,
+             and all other user-configurable settings (SettingsModel.swift).
+             Reason CA92.1: access user defaults to read/write settings
+             directly provided by the developer (first-party use only). -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string>
+            </array>
+        </dict>
+
+        <!-- File timestamps — the video browser reads creation/modification dates
+             to label and sort recordings shown to the user.
+             Reason C617.1: display file timestamps to the user in the app's UI. -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>C617.1</string>
+            </array>
+        </dict>
+
+    </array>
+
+    <!-- ───────────────────────────────────────────────────
+         Data collection
+         VigilCam stores video and audio on the user's own device / iCloud
+         account. No data is transmitted to or collected by the developer.
+    ─────────────────────────────────────────────────────── -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <!-- No cross-app tracking -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+</dict>
+</plist>
