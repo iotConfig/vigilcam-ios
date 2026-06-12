@@ -20,6 +20,8 @@ final class SettingsModel: ObservableObject {
         // Wyze Bridge
         static let wyzeRecordingsURL = "wyzeRecordingsURL"
         static let wyzeBridgeURL     = "wyzeBridgeURL"
+        // ESP32 IP cameras
+        static let esp32Cameras      = "esp32Cameras"
     }
 
     private let ud = UserDefaults.standard
@@ -55,6 +57,14 @@ final class SettingsModel: ObservableObject {
     @Published var wyzeBridgeURL: String {
         didSet { ud.set(wyzeBridgeURL, forKey: Key.wyzeBridgeURL) }
     }
+    /// List of user-configured ESP32 / MJPEG IP cameras.
+    @Published var esp32Cameras: [ESP32Camera] {
+        didSet {
+            if let data = try? JSONEncoder().encode(esp32Cameras) {
+                ud.set(data, forKey: Key.esp32Cameras)
+            }
+        }
+    }
 
     init() {
         chunkDurationMinutes = ud.object(forKey: Key.chunkMinutes)  as? Int ?? 5
@@ -71,6 +81,12 @@ final class SettingsModel: ObservableObject {
         smtpPassword         = ud.string(forKey: Key.smtpPassword)           ?? ""
         wyzeRecordingsURL    = ud.string(forKey: Key.wyzeRecordingsURL)      ?? ""
         wyzeBridgeURL        = ud.string(forKey: Key.wyzeBridgeURL)          ?? ""
+        if let data = ud.data(forKey: Key.esp32Cameras),
+           let cams = try? JSONDecoder().decode([ESP32Camera].self, from: data) {
+            esp32Cameras = cams
+        } else {
+            esp32Cameras = []
+        }
     }
 
     /// Chunk duration as a `TimeInterval` for use in timers.

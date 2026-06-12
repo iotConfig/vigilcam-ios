@@ -13,6 +13,13 @@ struct VideoBrowserView: View {
             StorageBrowser(provider: provider, backend: settings.storageBackend))
     }
 
+    /// Use this initialiser when you need to force a specific provider regardless
+    /// of the user's storage-backend setting — e.g. browsing ESP32 local recordings.
+    init(provider: StorageProvider, backend: StorageBackend) {
+        _browser = StateObject(wrappedValue:
+            StorageBrowser(provider: provider, backend: backend))
+    }
+
     var body: some View {
         NavigationStack {
             Group {

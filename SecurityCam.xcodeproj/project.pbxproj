@@ -33,6 +33,10 @@
 		AA0001000000000000000024 /* LocalStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000027 /* LocalStorageProvider.swift */; };
 		AA0001000000000000000025 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000028 /* OnboardingView.swift */; };
 		AA0001000000000000000026 /* WyzeBridgeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000029 /* WyzeBridgeProvider.swift */; };
+		AA0001000000000000000027 /* ESP32Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000030 /* ESP32Camera.swift */; };
+		AA0001000000000000000028 /* ESP32StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000031 /* ESP32StreamManager.swift */; };
+		AA0001000000000000000029 /* ESP32CameraListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000032 /* ESP32CameraListView.swift */; };
+		AA0001000000000000000030 /* ESP32RecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000033 /* ESP32RecorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		AA0002000000000000000027 /* LocalStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProvider.swift; sourceTree = "<group>"; };
 		AA0002000000000000000028 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		AA0002000000000000000029 /* WyzeBridgeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WyzeBridgeProvider.swift; sourceTree = "<group>"; };
+		AA0002000000000000000030 /* ESP32Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32Camera.swift; sourceTree = "<group>"; };
+		AA0002000000000000000031 /* ESP32StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32StreamManager.swift; sourceTree = "<group>"; };
+		AA0002000000000000000032 /* ESP32CameraListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32CameraListView.swift; sourceTree = "<group>"; };
+		AA0002000000000000000033 /* ESP32RecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32RecorderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 				AA0002000000000000000016 /* ModeSelectionView.swift */,
 				AA0004000000000000000004 /* CloudStorage */,
 				AA0004000000000000000005 /* LiveStream */,
+				AA0004000000000000000006 /* ESP32 */,
 				AA0002000000000000000005 /* Assets.xcassets */,
 				AA0002000000000000000006 /* Info.plist */,
 				AA0002000000000000000014 /* SecurityCam.entitlements */,
@@ -143,6 +152,17 @@
 				AA0002000000000000000024 /* LiveKitTokenGenerator.swift */,
 			);
 			path = LiveStream;
+			sourceTree = "<group>";
+		};
+		AA0004000000000000000006 /* ESP32 */ = {
+			isa = PBXGroup;
+			children = (
+				AA0002000000000000000030 /* ESP32Camera.swift */,
+				AA0002000000000000000031 /* ESP32StreamManager.swift */,
+				AA0002000000000000000032 /* ESP32CameraListView.swift */,
+				AA0002000000000000000033 /* ESP32RecorderView.swift */,
+			);
+			path = ESP32;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +269,10 @@
 				AA0001000000000000000024 /* LocalStorageProvider.swift in Sources */,
 				AA0001000000000000000025 /* OnboardingView.swift in Sources */,
 				AA0001000000000000000026 /* WyzeBridgeProvider.swift in Sources */,
+				AA0001000000000000000027 /* ESP32Camera.swift in Sources */,
+				AA0001000000000000000028 /* ESP32StreamManager.swift in Sources */,
+				AA0001000000000000000029 /* ESP32CameraListView.swift in Sources */,
+				AA0001000000000000000030 /* ESP32RecorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

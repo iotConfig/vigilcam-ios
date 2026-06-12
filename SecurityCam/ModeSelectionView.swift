@@ -7,6 +7,7 @@ struct ModeSelectionView: View {
     let onCameraTapped: () -> Void
     let onViewerTapped: () -> Void
     let onLiveTapped:   () -> Void
+    let onIPCamTapped:  () -> Void
 
     @State private var showSettings = false
 
@@ -79,6 +80,14 @@ struct ModeSelectionView: View {
                         subtitle: "Watch any device currently recording on your network",
                         accent:   Color(red: 0.8, green: 0.3, blue: 0.9),
                         action:   onLiveTapped
+                    )
+
+                    ModeCard(
+                        icon:     "camera.on.rectangle.fill",
+                        title:    "IP Cameras",
+                        subtitle: "Record from ESP32-CAM and other MJPEG WiFi cameras",
+                        accent:   Color(red: 0.2, green: 0.8, blue: 0.4),
+                        action:   onIPCamTapped
                     )
                 }
                 .padding(.horizontal, 28)

@@ -25,6 +25,7 @@ struct RootView: View {
     @State private var showCamera = false
     @State private var showViewer = false
     @State private var showLive   = false
+    @State private var showIPCam  = false
 
     /// Set to true after the user completes (or dismisses) the onboarding flow.
     /// Persisted across launches so the walkthrough only shows once.
@@ -40,7 +41,8 @@ struct RootView: View {
             settings: settings,
             onCameraTapped: { showCamera = true },
             onViewerTapped: { showViewer = true },
-            onLiveTapped:   { showLive   = true }
+            onLiveTapped:   { showLive   = true },
+            onIPCamTapped:  { showIPCam  = true }
         )
         .fullScreenCover(isPresented: $showCamera) {
             ContentView(settings: settings)
@@ -50,6 +52,9 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $showLive) {
             LiveStreamView()
+        }
+        .fullScreenCover(isPresented: $showIPCam) {
+            ESP32CameraListView(settings: settings)
         }
         // Onboarding — shown on first launch only.
         // interactiveDismissDisabled prevents accidental swipe-down.
