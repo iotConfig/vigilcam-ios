@@ -84,8 +84,8 @@ struct ModeSelectionView: View {
 
                     ModeCard(
                         icon:     "camera.on.rectangle.fill",
-                        title:    "IP Cameras",
-                        subtitle: "Record from ESP32-CAM and other MJPEG WiFi cameras",
+                        title:    "Multi-Cam",
+                        subtitle: "Record this phone + ESP32 / MJPEG cameras simultaneously",
                         accent:   Color(red: 0.2, green: 0.8, blue: 0.4),
                         action:   onIPCamTapped
                     )

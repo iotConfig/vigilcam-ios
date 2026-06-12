@@ -54,7 +54,7 @@ struct RootView: View {
             LiveStreamView()
         }
         .fullScreenCover(isPresented: $showIPCam) {
-            ESP32CameraListView(settings: settings)
+            MultiCamDashboardView(settings: settings)
         }
         // Onboarding — shown on first launch only.
         // interactiveDismissDisabled prevents accidental swipe-down.

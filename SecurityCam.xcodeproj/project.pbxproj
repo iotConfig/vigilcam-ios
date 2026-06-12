@@ -37,6 +37,8 @@
 		AA0001000000000000000028 /* ESP32StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000031 /* ESP32StreamManager.swift */; };
 		AA0001000000000000000029 /* ESP32CameraListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000032 /* ESP32CameraListView.swift */; };
 		AA0001000000000000000030 /* ESP32RecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000033 /* ESP32RecorderView.swift */; };
+		AA0001000000000000000031 /* MultiCamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000034 /* MultiCamSession.swift */; };
+		AA0001000000000000000032 /* MultiCamDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000035 /* MultiCamDashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		AA0002000000000000000031 /* ESP32StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32StreamManager.swift; sourceTree = "<group>"; };
 		AA0002000000000000000032 /* ESP32CameraListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32CameraListView.swift; sourceTree = "<group>"; };
 		AA0002000000000000000033 /* ESP32RecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESP32RecorderView.swift; sourceTree = "<group>"; };
+		AA0002000000000000000034 /* MultiCamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCamSession.swift; sourceTree = "<group>"; };
+		AA0002000000000000000035 /* MultiCamDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCamDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				AA0004000000000000000004 /* CloudStorage */,
 				AA0004000000000000000005 /* LiveStream */,
 				AA0004000000000000000006 /* ESP32 */,
+				AA0004000000000000000007 /* MultiCam */,
 				AA0002000000000000000005 /* Assets.xcassets */,
 				AA0002000000000000000006 /* Info.plist */,
 				AA0002000000000000000014 /* SecurityCam.entitlements */,
@@ -163,6 +168,15 @@
 				AA0002000000000000000033 /* ESP32RecorderView.swift */,
 			);
 			path = ESP32;
+			sourceTree = "<group>";
+		};
+		AA0004000000000000000007 /* MultiCam */ = {
+			isa = PBXGroup;
+			children = (
+				AA0002000000000000000034 /* MultiCamSession.swift */,
+				AA0002000000000000000035 /* MultiCamDashboardView.swift */,
+			);
+			path = MultiCam;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +287,8 @@
 				AA0001000000000000000028 /* ESP32StreamManager.swift in Sources */,
 				AA0001000000000000000029 /* ESP32CameraListView.swift in Sources */,
 				AA0001000000000000000030 /* ESP32RecorderView.swift in Sources */,
+				AA0001000000000000000031 /* MultiCamSession.swift in Sources */,
+				AA0001000000000000000032 /* MultiCamDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
